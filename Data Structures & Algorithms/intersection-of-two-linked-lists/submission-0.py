@@ -1,0 +1,14 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        listA, listB = headA, headB
+
+        while listA != listB:
+            listA = listA.next if listA is not None else headB
+            listB = listB.next if listB is not None else headA       
+        return listA
